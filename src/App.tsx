@@ -56,7 +56,7 @@ function App() {
                     <ul>
                         {Object.entries(data).map(([key, value]) => {
                             const item = value as { time: string, value: string };
-                            return <li key={key}>{item.time}: {item.value}</li>;
+                            return <li key={key}><div className={"item-time"}>{item.time}:</div><div className={"item-value"}>{item.value}</div></li>;
                         })}
                     </ul>
                 )}
@@ -67,7 +67,8 @@ function App() {
                     type="text"
                     value={inputValue}
                     onChange={(e) => setInputValue(e.target.value)}
-                    placeholder="Enter value"
+                    placeholder="Enter Here .."
+
                 />
                 <button className={"forum"} onClick={handlePostMessage} style={forumStyle}>Post Message</button>
                 <button className={"entry-pass"} onClick={checkPassword} style={entryStyle}>Submit</button>
