@@ -39,16 +39,30 @@ function App() {
         set(newItemRef, {
             time: currentTime,
             value: inputValue
-        }).then(() => console.log('New item added!'));
+        }).then(() => console.log('New message added!'));
+        setInputValue('');
+
+        // if there are more than 10 posts, delete the oldest one
+        if (Object.keys(data).length >= 10) {
+            deleteOldestPost();
+        }
     };
+
+    const deleteOldestPost = () => {
+        const oldestPostRef = ref(database, 'messages/' + Object.keys(data)[0]);
+        set(oldestPostRef, null).then();
+    }
 
 
 
     return (
         <>
             <section className={"entry-pass"} style={entryStyle}>
-                <p> Enter Password </p>
-
+                <div className={"entry-header"}>
+                <h4> Enter Password </h4>
+                {/*add key svg */}
+                <img src={'key.svg'} alt={'key'}></img>
+                </div>
             </section>
             <section className={"forum"} style={forumStyle}>
                 <h1>Resect Soc</h1>

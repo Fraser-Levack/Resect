@@ -15,6 +15,12 @@
   justify-content: space-between;
 }
 
+.entry-header {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+}
+
 
 ul {
   list-style-type: none;
